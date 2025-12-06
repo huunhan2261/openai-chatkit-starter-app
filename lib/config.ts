@@ -7,9 +7,14 @@ export const CREATE_SESSION_ENDPOINT = "/api/create-session";
 
 export const STARTER_PROMPTS: StartScreenPrompt[] = [
   {
-    label: "What is ChatKit?",
-    prompt: "What is ChatKit?",
+    label: "Giải thích ISO 19650-2 theo cách dễ hiểu cho người mới",
+    prompt: "Giải thích ISO 19650-2 theo cách dễ hiểu cho người mới",
     icon: "circle-question",
+  },
+  {
+    label: "Tạo một vài quiz về nội dung của ISO 19650-2",
+    prompt: "Tạo một vài quiz về nội dung của ISO 19650-2",
+    icon: "book-open",
   },
   // Add more prompts as needed
 ];
@@ -24,7 +29,7 @@ export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
   density: "normal",
   color: {
     accent: {
-      primary: theme === "dark" ? "#f1f5f9" : "#4c6fb1",
+      primary: theme === "dark" ? "#2d353b" : "#4c6fb1",
       level: 1,
     },
     surface: {
