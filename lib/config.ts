@@ -30,6 +30,72 @@ export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
     },
   },
   radius: "round",
-  // Add other theme options here
+  import type { ChatKitOptions } from "@openai/chatkit";
+
+const options: ChatKitOptions = {
+  api: {
+    // TODO: configure your ChatKit API integration (URL, auth, uploads).
+  },
+  theme: {
+    colorScheme: 'light',
+    radius: 'sharp',
+    density: 'normal',
+    color: {
+      accent: {
+        primary: '#4c6fb1',
+        level: 1
+      },
+      surface: {
+        background: '#F0F4F9',
+        foreground: '#ffffff'
+      }
+    },
+    typography: {
+      baseSize: 16,
+      fontFamily: '"OpenAI Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif',
+      fontFamilyMono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace',
+      fontSources: [
+        {
+          family: 'OpenAI Sans',
+          src: 'https://cdn.openai.com/common/fonts/openai-sans/v2/OpenAISans-Regular.woff2',
+          weight: 400,
+          style: 'normal',
+          display: 'swap'
+        }
+      // ...and 7 more font sources
+      ]
+    }
+  },
+  composer: {
+    attachments: {
+      enabled: true,
+      maxCount: 5,
+      maxSize: 10485760
+    },
+    tools: [
+      {
+        id: 'search_docs',
+        label: 'Search docs',
+        shortLabel: 'Docs',
+        placeholderOverride: 'Search documentation',
+        icon: 'book-open',
+        pinned: false
+      }
+      // ...and 1 more tool
+    ],
+  },
+  startScreen: {
+    greeting: 'ISO19650-2 Q&A Agent',
+    prompts: [
+      {
+        icon: 'circle-question',
+        label: 'What is ChatKit?',
+        prompt: 'What is ChatKit?'
+      }
+      // ...and 4 more prompts
+    ],
+  },
+  // Optional fields not shown: locale, initialThread, threadItemActions, header, onClientTool, entities, widgets
+};
   // chatkit.studio/playground to explore config options
 });
